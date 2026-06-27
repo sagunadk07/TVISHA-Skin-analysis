@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+
+{% block title %}Sign Up - TVISHA{% endblock %}
+
+{% block content %}
+<section class="auth-view py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-5">
+        <div class="card border-0 shadow rounded-4 p-4">
+          <div class="text-center mb-4">
+            <span class="badge bg-brand rounded-pill px-3 py-2 mb-3 small text-uppercase">Create Account</span>
+            <h1 class="font-display display-6 fw-normal mb-2">Join Tvisha</h1>
+            <p class="text-secondary mb-0">Save your login and start your AI skin scan.</p>
+          </div>
+          <form method="post" action="{{ url_for('register') }}">
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="name">Name</label>
+              <input class="form-control form-control-lg" id="name" name="name" type="text" value="{{ name or '' }}" autocomplete="name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label fw-semibold" for="email">Email</label>
+              <input class="form-control form-control-lg" id="email" name="email" type="email" value="{{ email or '' }}" autocomplete="email" required>
+            </div>
+            <div class="mb-4">
+              <label class="form-label fw-semibold" for="password">Password</label>
+              <input class="form-control form-control-lg" id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
+            </div>
+            <button class="btn btn-brand btn-lg rounded-pill w-100" type="submit">
+              <i class="bi bi-person-plus me-2"></i>Create Account
+            </button>
+          </form>
+          <p class="text-center text-secondary small mt-4 mb-0">
+            Already have an account? <a class="text-brand fw-semibold" href="{{ url_for('login') }}">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
